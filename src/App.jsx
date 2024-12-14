@@ -12,7 +12,7 @@ function App() {
 
 
   return (
-    <>
+    <div className="nunito-font overflow-x-hidden">
    
       <NavBar></NavBar>
       <Banner></Banner>
@@ -23,7 +23,7 @@ function App() {
       <Footer></Footer>
      
      
-    </>
+    </div>
   )
 }
 

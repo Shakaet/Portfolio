@@ -12,15 +12,18 @@ import animationData from "../assets/anim.json";
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-
   // Initialize AOS for scroll animations
   useEffect(() => {
     AOS.init({ duration: 1200 });
   }, []);
 
- 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setIsMobileMenuOpen(false); // Close the mobile menu after navigation
   };
 
   return (
@@ -31,7 +34,7 @@ const Navbar = () => {
           <div className="text-white font-bold text-xl flex items-center space-x-2">
             <Lottie animationData={animationData} loop={true} className="h-8 w-8" />
             <a href="#" className="hover:text-gray-300 transition duration-300 font-extrabold text-3xl">
-              <Typewriter words={['Shakaet']} loop cursor />
+              <Typewriter words={['Abdulla Al Shakaet']} loop cursor />
             </a>
           </div>
 
@@ -42,16 +45,13 @@ const Navbar = () => {
                 <a
                   href={`#${item.toLowerCase()}`}
                   className="text-white text-3xl dark:text-gray-300 relative group hover:text-xl hover:text-black hover:font-bold font-bold "
+                  onClick={() => scrollToSection(item.toLowerCase())}
                 >
                   {item}
                   <span className="absolute left-0 -bottom-3 w-0 h-1 bg-gray-300 dark:bg-white transition-all duration-300 group-hover:w-1/2 mx-auto"></span>
                 </a>
               </Reveal>
             ))}
-
-            {/* Theme Toggle */}
-           
-            <Tooltip id="theme-toggle-tooltip" />
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -83,14 +83,14 @@ const Navbar = () => {
             {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
               <a
                 key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-white dark:text-gray-300 text-2xl  transition duration-300 hover:text-xl hover:text-black hover:font-bold font-bold "
+                onClick={() => scrollToSection(item.toLowerCase())}
+                className="text-white dark:text-gray-300 text-2xl transition duration-300 hover:text-xl hover:text-black hover:font-bold group-hover:w-1/2 mx-auto"
               >
                 {item}
-                <span className='absolute left-0 -bottom-3 w-0 h-1 bg-gray-300 dark:bg-white transition-all duration-300 group-hover:w-1/2 mx-auto'></span>
+                <span className="absolute left-0 -bottom-3 w-0 h-1 bg-gray-300 dark:bg-white transition-all duration-300 group-hover:w-1/2 mx-auto"></span>
               </a>
             ))}
-            <button onClick={toggleMobileMenu} className="text-white text-xl mt-4 hover:text-gray-300">
+            <button onClick={toggleMobileMenu} className="text-white text-xl mt-4 hover:text-gray-300 font-extrabold">
               Close Menu
             </button>
           </div>
