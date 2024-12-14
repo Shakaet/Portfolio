@@ -1,6 +1,7 @@
 import AboutMe from "./components/AboutMe"
 import Banner from "./components/Banner"
 import NavBar from "./components/NavBar"
+import Projects from "./components/Projects"
 import Skill from "./components/Skill"
 
 
@@ -15,6 +16,7 @@ function App() {
       <Banner></Banner>
       <AboutMe></AboutMe>
       <Skill></Skill>
+      <Projects></Projects>
      
      
     </>
