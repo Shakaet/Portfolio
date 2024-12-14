@@ -8,30 +8,60 @@ const projectsData = [
     title: 'Portfolio Website',
     category: 'Web Development',
     description: 'A responsive portfolio built with React and Tailwind CSS.',
-    image: 'https://via.placeholder.com/300x200',
-    liveLink: 'https://example.com/portfolio',
+    image: 'https://i.ibb.co.com/WPXC8zV/p1.png',
+    liveLink: 'https://splendid-pixie-22a5e2.netlify.app/',
   },
   {
     title: 'E-Commerce App',
     category: 'Mobile Apps',
     description: 'A mobile e-commerce application using React Native.',
-    image: 'https://via.placeholder.com/300x200',
-    liveLink: 'https://example.com/ecommerce',
+    image: 'https://i.ibb.co.com/wB8s0jQ/p2.png',
+    liveLink: 'https://crowd-funding-application.web.app/',
   },
   {
     title: 'Weather App',
     category: 'Web Development',
     description: 'A weather forecast app using APIs and React.',
-    image: 'https://via.placeholder.com/300x200',
-    liveLink: 'https://example.com/weather',
+    image: 'https://i.ibb.co.com/XtvhYTQ/p3.png',
+    liveLink: 'https://superlative-dusk-352c79.netlify.app/',
   },
   {
-    title: 'Task Manager',
-    category: 'Productivity',
-    description: 'A task management app built with Node.js and Express.',
-    image: 'https://via.placeholder.com/300x200',
-    liveLink: 'https://example.com/taskmanager',
+    title: 'Weather App',
+    category: 'Web Development',
+    description: 'A weather forecast app using APIs and React.',
+    image: 'https://i.ibb.co.com/dJ8W6Rs/p6.png',
+    liveLink: 'https://minhazuddin10.github.io/DonationProjects/index.html',
   },
+  {
+    title: 'Weather App',
+    category: 'Web Development',
+    description: 'A weather forecast app using APIs and React.',
+    image: 'https://i.ibb.co.com/fMwb0mS/p5.png',
+    liveLink: 'https://tourmaline-duckanoo-6dad00.netlify.app/',
+  },
+  {
+    title: 'Weather App',
+    category: 'Web Development',
+    description: 'A weather forecast app using APIs and React.',
+    image: 'https://i.ibb.co.com/80cHcCj/p4.png',
+    liveLink: 'https://storied-quokka-ac9054.netlify.app/',
+  },
+  {
+    title: 'Weather App',
+    category: 'Web Development',
+    description: 'A weather forecast app using APIs and React.',
+    image: 'https://i.ibb.co.com/vPxT5h2/p8.png',
+    liveLink: 'https://minhazuddin10.github.io/Responsive_Css/',
+  },
+  {
+    title: 'Weather App',
+    category: 'Web Development',
+    description: 'A weather forecast app using APIs and React.',
+    image: 'https://i.ibb.co.com/WpkVcY9/p7.png',
+    liveLink: 'https://minhazuddin10.github.io/smart_home_assignment/',
+  },
+ 
+
 ];
 
 const Projects = () => {
@@ -49,6 +79,7 @@ const Projects = () => {
         </motion.h2>
         </Fade>
 
+        <Fade direction="right" duration={1500}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsData.map((project, index) => (
             <motion.div
@@ -97,6 +128,9 @@ const Projects = () => {
             </motion.div>
           ))}
         </div>
+                </Fade>
+
+       
       </div>
     </section>
   );
