@@ -60,7 +60,7 @@ const Banner = () => {
         <Reveal keyframes={fadeInUp} delay={600}>
           <p className="mt-4 text-xl md:text-2xl animate__animated animate__fadeInUp">
             <Typewriter
-              words={['Web Developer.', 'React Enthusiast.', 'JavaScript Ninja.']}
+              words={['Web Developer.', 'React Enthusiast.', 'JavaScript Ninja.','Frontend Developer.','Full Stack Developer.']}
               loop
               cursor
             />
@@ -80,6 +80,12 @@ const Banner = () => {
               className="px-6 py-3 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black hover:scale-105 transform transition duration-300"
             >
               Contact Me
+            </a>
+            <a
+              
+              className="px-6 py-3 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black hover:scale-105 transform transition duration-300"
+            >
+              Download Resume
             </a>
           </div>
         </Reveal>

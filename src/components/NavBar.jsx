@@ -33,7 +33,7 @@ const Navbar = () => {
           {/* Logo with Animation */}
           <div className="text-white font-bold text-xl flex items-center space-x-2">
             <Lottie animationData={animationData} loop={true} className="h-8 w-8" />
-            <a href="#" className="hover:text-gray-300 transition duration-300 font-extrabold text-3xl">
+            <a href="#" className="hover:text-gray-300 transition duration-300 font-extrabold text-2xl">
               <Typewriter words={['Abdulla Al Shakaet']} loop cursor />
             </a>
           </div>

@@ -98,7 +98,7 @@ const Contact = () => {
             </Fade>
             <div className="flex justify-center space-x-8">
               <motion.a
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/in/shakaet/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-4xl text-white hover:text-purple-400"
@@ -110,7 +110,7 @@ const Contact = () => {
 </svg>
               </motion.a>
               <motion.a
-                href="https://github.com"
+                href="https://github.com/Shakaet"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-4xl text-white hover:text-purple-400"
@@ -134,7 +134,7 @@ const Contact = () => {
 </svg>
               </motion.a>
               <motion.a
-                href="https://facebook.com"
+                href="https://www.facebook.com/md.shakaet/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-4xl text-white hover:text-purple-400"

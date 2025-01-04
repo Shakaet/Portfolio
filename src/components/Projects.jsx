@@ -5,6 +5,13 @@ import { Fade } from 'react-awesome-reveal';
 
 const projectsData = [
   {
+    title: 'Lost & Found Items Website',
+    category: 'Web Development',
+    description: 'A responsive portfolio built with React, Tailwind CSS, Firebase and MongoDb',
+    image: 'https://i.ibb.co.com/RD9CSRY/Screenshot-2025-01-04-221236.png',
+    liveLink: 'https://findlostitem-1ef05.web.app/',
+  },
+  {
     title: 'Winter Donation Website',
     category: 'Web Development',
     description: 'A responsive portfolio built with React, Tailwind CSS, Firebase',
