@@ -4,6 +4,18 @@ import { Tooltip } from 'react-tooltip';
 import { Fade } from 'react-awesome-reveal';
 
 const projectsData = [
+
+  // https://i.ibb.co.com/84bS0g5g/gadget2.png
+
+  {
+    title: 'Smarty Product (Gadget) Website',
+    category: 'Web Development',
+    description: 'A responsive portfolio built with React, Tailwind CSS, Firebase, MongoDb and implement Payment Gateway',
+    image: 'https://i.ibb.co.com/84bS0g5g/gadget2.png',
+    liveLink: 'https://superb-chaja-5589ab.netlify.app/',
+  },
+
+
   {
     title: 'Lost & Found Items Website',
     category: 'Web Development',
