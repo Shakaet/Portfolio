@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import profileImage from '../assets/p4_1.png';
-import resume from "../assets/resume.pdf"
+import resume from "../assets/updateResume.pdf"
 import 'animate.css';
 import animationData from "../assets/banner.json"; // Replace with your Lottie animation file path
 
@@ -30,7 +30,7 @@ const Banner = () => {
   return (
     <section
       className="bg-gradient-to-r from-purple-700 via-pink-600 to-red-500 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600 text-white min-h-screen flex items-center justify-center relative overflow-hidden"
-      id="banner"
+      id="home"
     >
       {/* Background Animation */}
       <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">

@@ -27,7 +27,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 dark:bg-gray-800 shadow-lg">
+    <header className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 dark:bg-gray-800 shadow-lg fixed top-0  z-50 w-full">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           {/* Logo with Animation */}
@@ -44,7 +44,7 @@ const Navbar = () => {
               <Reveal effect="fadeIn" duration={1500} delay={index * 200} key={item}>
                 <a
                   href={`#${item.toLowerCase()}`}
-                  className="text-white text-3xl dark:text-gray-300 relative group hover:text-xl hover:text-black hover:font-bold font-bold "
+                  className="text-white text-3xl dark:text-gray-300 relative group  hover:font-bold font-bold "
                   onClick={() => scrollToSection(item.toLowerCase())}
                 >
                   {item}
@@ -84,7 +84,7 @@ const Navbar = () => {
               <a
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-white dark:text-gray-300 text-2xl transition duration-300 hover:text-xl hover:text-black hover:font-bold group-hover:w-1/2 mx-auto"
+                className="text-white dark:text-gray-300 text-2xl transition duration-300  hover:font-bold group-hover:w-1/2 mx-auto"
               >
                 {item}
                 <span className="absolute left-0 -bottom-3 w-0 h-1 bg-gray-300 dark:bg-white transition-all duration-300 group-hover:w-1/2 mx-auto"></span>

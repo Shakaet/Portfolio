@@ -4,7 +4,7 @@ import { Tooltip } from 'react-tooltip';
 import { Fade } from 'react-awesome-reveal';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', message: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e) => {
@@ -15,7 +15,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: '', message: '' });
   };
 
   return (
@@ -32,71 +32,61 @@ const Contact = () => {
           </motion.h2>
         </Fade>
 
-
         <Fade direction="right" duration={1500}>
-        <motion.div
-          className="lg:flex lg:space-x-12 mb-16"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-        >
-
-            
-          <form
-            onSubmit={handleSubmit}
-            className="w-full lg:w-1/2 bg-gray-800 p-8 rounded-lg shadow-lg"
+          <motion.div
+            className="lg:flex lg:space-x-12 mb-16"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
           >
-            <h3 className="text-2xl font-bold text-center mb-6">Contact Form</h3>
-            {isSubmitted && (
-              <div className="text-green-400 mb-4 text-center">Thank you for reaching out! I’ll get back to you soon.</div>
-            )}
-            <div className="mb-4">
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your Name"
-                className="w-full p-3 rounded-lg bg-gray-700 text-white focus:outline-none"
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Your Email"
-                className="w-full p-3 rounded-lg bg-gray-700 text-white focus:outline-none"
-                required
-              />
-            </div>
-            <div className="mb-6">
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Your Message"
-                className="w-full p-3 rounded-lg bg-gray-700 text-white focus:outline-none"
-                required
-              />
-            </div>
-            <motion.button
-              type="submit"
-              className="w-full py-3 bg-purple-500 text-white font-semibold rounded-lg shadow-lg hover:bg-purple-400 transition-all"
-              whileHover={{ scale: 1.05 }}
+            <form
+              onSubmit={handleSubmit}
+              className="w-full lg:w-1/2 bg-gray-800 p-8 rounded-lg shadow-lg"
             >
-              Send Message
-            </motion.button>
-          </form>
+              <h3 className="text-2xl font-bold text-center mb-6">Contact Form</h3>
+              {isSubmitted && (
+                <div className="text-green-400 mb-4 text-center">Thank you for reaching out! I’ll get back to you soon.</div>
+              )}
+              <div className="mb-4">
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your Name"
+                  className="w-full p-3 rounded-lg bg-gray-700 text-white focus:outline-none"
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Your Message"
+                  className="w-full p-3 rounded-lg bg-gray-700 text-white focus:outline-none"
+                  required
+                />
+              </div>
+              <motion.button
+                type="submit"
+                className="w-full py-3 bg-purple-500 text-white font-semibold rounded-lg shadow-lg hover:bg-purple-400 transition-all"
+                whileHover={{ scale: 1.05 }}
+              >
+                Send Message
+              </motion.button>
+            </form>
 
-          {/* Social Links & Location */}
-          <div className="w-full lg:w-1/2 mt-12 lg:mt-0">
-            <Fade direction="right" duration={1500}>
-              <h3 className="text-2xl font-bold text-center mb-6">Connect with Me</h3>
-            </Fade>
-            <div className="flex justify-center space-x-8">
+            {/* Social Links & Location */}
+            <div className="w-full lg:w-1/2 mt-12 lg:mt-0">
+              <Fade direction="right" duration={1500}>
+                <h3 className="text-2xl font-bold text-center mb-6">Connect with Me</h3>
+              </Fade>
+              <div className="text-center mb-6">
+                <p className="text-white">Email: <span className="text-purple-400">abdshakaet@gmail.com</span></p>
+                <p className="text-white mt-3">Phone: <span className="text-purple-400">+8801920293858</span></p>
+              </div>
+              <div className="flex justify-center space-x-8">
               <motion.a
                 href="https://www.linkedin.com/in/shakaet/"
                 target="_blank"
@@ -145,21 +135,10 @@ const Contact = () => {
     <path d="M25,3C12.85,3,3,12.85,3,25c0,11.03,8.125,20.137,18.712,21.728V30.831h-5.443v-5.783h5.443v-3.848 c0-6.371,3.104-9.168,8.399-9.168c2.536,0,3.877,0.188,4.512,0.274v5.048h-3.612c-2.248,0-3.033,2.131-3.033,4.533v3.161h6.588 l-0.894,5.783h-5.694v15.944C38.716,45.318,47,36.137,47,25C47,12.85,37.15,3,25,3z"></path>
 </svg>
               </motion.a>
-              
+              </div>
             </div>
-
-            <div className="mt-8 text-center">
-              <h4 className="text-xl font-semibold mb-2">Location</h4>
-              <p className="text-lg text-gray-300">Chittagong , Bangladesh</p>
-            </div>
-          </div>
-        </motion.div>
-            
-              
-            </Fade>
-
-       
-        
+          </motion.div>
+        </Fade>
       </div>
     </section>
   );
