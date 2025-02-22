@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import profileImage from '../assets/p4_1.png';
-import resume from "../assets/updateResume.pdf"
+import resume from "../assets/FinalResume.pdf"
 import 'animate.css';
 import animationData from "../assets/banner.json"; // Replace with your Lottie animation file path
 
