@@ -7,6 +7,15 @@ import { Dialog } from '@headlessui/react';
 const projectsData = [
 
   // https://i.ibb.co.com/84bS0g5g/gadget2.png
+  {
+    title: 'Business Analytics Dashboard (DataPulse) Website',
+    category: 'Web Development',
+    description: 'A responsive portfolio built with React, Tailwind CSS, Firebaseand MongoDb.DataPulse is a comprehensive business analytics dashboard designed to manage user transactions and revenue data. It offers two panels: User and Admin. The User panel allows individuals to add, view, and manage their transactions, while the Admin panel provides more advanced features such as managing user roles, deleting users, and managing revenue (adding, updating, and viewing revenue). Both user types can update their profiles, and they can view graphical representations of user, revenue, and transaction data in the dashboards home section.',
+    image: 'https://i.ibb.co.com/Y4tVD40t/dashboard.png',
+    liveLink: 'https://melodious-treacle-a31ff2.netlify.app/',
+    githubRepo: 'https://github.com/Shakaet/Business-Analytics-Dashboard-Client',
+  },
+ 
 
   {
     title: 'Smarty Product (Gadget) Website',
@@ -16,6 +25,7 @@ const projectsData = [
     liveLink: 'https://superb-chaja-5589ab.netlify.app/',
     githubRepo: 'https://github.com/Shakaet/Product-MangeMent-Client',
   },
+  
 
 
   {
