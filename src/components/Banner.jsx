@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import profileImage from '../assets/p4_1.png';
-import resume from "../assets/FinalResume.pdf"
+import resume from "/FinalResumeup.pdf"
 import 'animate.css';
 import animationData from "../assets/banner.json"; // Replace with your Lottie animation file path
 
@@ -82,7 +82,7 @@ const Banner = () => {
             >
               Contact Me
             </a>
-            <a href={resume} download="resume"
+            <a href={resume}  download="Abdulla_Al_Shakaet_Resume.pdf"
               
               className="px-6 py-3 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black hover:scale-105 transform transition duration-300"
             >
