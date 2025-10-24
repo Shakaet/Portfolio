@@ -7,7 +7,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'animate.css';
 import profileAnimation from '../assets/aboutMe.json'; // Replace with the actual path to your Lottie file
-import profileImage from '../assets/p4_1.png'; // Replace with your profile image
+
 
 const AboutMe = () => {
   React.useEffect(() => {

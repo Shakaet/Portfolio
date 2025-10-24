@@ -29,13 +29,13 @@ const Banner = () => {
 
   return (
     <section
-      className="bg-gradient-to-r from-purple-700 via-pink-600 to-red-500 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600 text-white min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="bg-gradient-to-b from-gray-900 to-gray-800 text-white min-h-screen flex items-center justify-center relative overflow-hidden"
       id="home"
     >
       {/* Background Animation */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+      {/* <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
         <Lottie animationData={animationData} loop={true} />
-      </div>
+      </div> */}
 
       {/* Content */}
       <div className="z-10 text-center px-4 md:px-0">

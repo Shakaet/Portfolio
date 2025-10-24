@@ -6,12 +6,17 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import ProjectDetails from './components/ProjectDetails.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element:<App></App>,
   },
+  {
+    path: "/projects/:id",
+    element:<ProjectDetails></ProjectDetails>,
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(

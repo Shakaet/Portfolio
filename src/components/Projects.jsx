@@ -14,6 +14,7 @@ const projectsData = [
     image: 'https://i.ibb.co/v4q06wKp/payroll.png',
     liveLink: 'https://gilded-centaur-ce11bb.netlify.app/',
     githubRepo: 'https://github.com/Shakaet/Payroll-Management-Client',
+    githubBackend: 'https://github.com/Shakaet/Payroll-Management-Server',
   },
   {
     title: 'Business Analytics Dashboard (DataPulse) Website',
@@ -22,6 +23,7 @@ const projectsData = [
     image: 'https://i.ibb.co/qMpT1w3R/dashh.png',
     liveLink: 'https://melodious-treacle-a31ff2.netlify.app/',
     githubRepo: 'https://github.com/Shakaet/Business-Analytics-Dashboard-Client',
+    githubBackend: 'https://github.com/Shakaet/Business-Analytics-Dashboard-Server',
   },
  
 
@@ -32,6 +34,7 @@ const projectsData = [
     image: 'https://i.ibb.co.com/84bS0g5g/gadget2.png',
     liveLink: 'https://superb-chaja-5589ab.netlify.app/',
     githubRepo: 'https://github.com/Shakaet/Product-MangeMent-Client',
+    githubBackend: 'https://github.com/Shakaet/Product-MangeMent-Server',
   },
   
 
@@ -43,6 +46,7 @@ const projectsData = [
     image: 'https://i.ibb.co.com/RD9CSRY/Screenshot-2025-01-04-221236.png',
     liveLink: 'https://findlostitem-1ef05.web.app/',
     githubRepo: 'https://github.com/Shakaet/Lost-Found-Item-Client',
+    githubBackend: 'https://github.com/Shakaet/Lost-Found-Item-Server',
   },
   {
     title: 'Winter Donation Website',
@@ -59,6 +63,7 @@ const projectsData = [
     image: 'https://i.ibb.co.com/wB8s0jQ/p2.png',
     liveLink: 'https://crowd-funding-application.web.app/',
     githubRepo: 'https://github.com/Shakaet/phA-10-Client-Crowd_Founding',
+    githubBackend: 'https://github.com/Shakaet/Lost-Found-Item-Server',
   },
   {
     title: 'Animal Adoption Website',
@@ -115,6 +120,12 @@ const projectsData = [
 const Projects = () => {
 
   const [selectedProject, setSelectedProject] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const openProject = (project) => {
+    setSelectedProject(project);
+    setCurrentSlide(0);
+  };
   return (
     <section id="projects" className="py-20 bg-gradient-to-b from-gray-800 to-gray-700 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -173,16 +184,26 @@ const Projects = () => {
                 >
                   View Live
                 </a> 
+                {project.githubBackend && (
+                  <a
+                    href={project.githubBackend}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-indigo-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-indigo-500"
+                  >
+                    Server Code
+                  </a>
+                )}
                 <a
                     href={project.githubRepo}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-4 py-2 bg-gray-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-gray-500"
                   >
-                    GitHub Repo
+                    Client Code
                   </a>
                   <button
-                    onClick={() => setSelectedProject(project)}
+                    onClick={() => openProject(project)}
                     className="px-4 py-2 bg-purple-500 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-purple-400"
                   >
                     View Details
@@ -210,26 +231,113 @@ const Projects = () => {
        
       </div>
 
-      {/* Modal */}
+      {/* Full-screen Details Modal */}
       {selectedProject && (
-        <Dialog open={!!selectedProject} onClose={() => setSelectedProject(null)} className="fixed inset-0 flex items-center justify-center z-50">
-          <div className="bg-black bg-opacity-50 absolute inset-0"></div>
+        <Dialog open={!!selectedProject} onClose={() => setSelectedProject(null)} className="fixed overflow-y-auto inset-0 z-50">
+          <div className="absolute inset-0 bg-black/75"></div>
           <motion.div
-            initial={{ opacity: 0, y: -50 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
-            transition={{ duration: 0.5 }}
-            className="bg-gray-900 text-white p-6 rounded-lg shadow-xl relative z-10 max-w-lg w-full"
+            exit={{ opacity: 0, y: 16 }}
+            transition={{ duration: 0.3 }}
+            className="relative z-10 flex min-h-screen items-start overflow-y-auto"
           >
-            <h2 className="text-2xl font-bold mb-4">{selectedProject.title}</h2>
-            <p className="mb-4">{selectedProject.description}</p>
-            <div className="flex justify-end">
-              <button
-                onClick={() => setSelectedProject(null)}
-                className="px-4 py-2 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-400"
-              >
-                Close
-              </button>
+            <div className="mx-auto w-full max-w-6xl bg-[#0f172a] text-white rounded-xl overflow-hidden shadow-2xl my-6 border border-white/10">
+              {/* Header */}
+              <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                <button onClick={() => setSelectedProject(null)} className="text-sm text-gray-300 hover:text-white">
+                  ← Back to Projects
+                </button>
+                <button onClick={() => setSelectedProject(null)} className="px-3 py-1.5 rounded-md bg-white/10 hover:bg-white/20">Close</button>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6">
+                {/* Left: Slider */}
+                <div className="lg:col-span-2">
+                  <div className="relative w-full h-72 md:h-96 rounded-xl overflow-hidden border border-white/10 bg-black/20">
+                    {(() => {
+                      const slides = (selectedProject.images && selectedProject.images.length > 0)
+                        ? selectedProject.images
+                        : [selectedProject.image];
+                      const safeIndex = ((currentSlide % slides.length) + slides.length) % slides.length;
+                      return (
+                        <img src={slides[safeIndex]} alt={`${selectedProject.title} ${safeIndex+1}`} className="w-full h-full object-cover" />
+                      );
+                    })()}
+                    {/* Arrows */}
+                    <button
+                      aria-label="Previous image"
+                      onClick={() => setCurrentSlide((s) => s - 1)}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 h-9 w-9 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center"
+                    >
+                      ‹
+                    </button>
+                    <button
+                      aria-label="Next image"
+                      onClick={() => setCurrentSlide((s) => s + 1)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 h-9 w-9 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center"
+                    >
+                      ›
+                    </button>
+                  </div>
+                  {/* Thumbnails */}
+                  <div className="mt-4 flex gap-3 overflow-x-auto">
+                    {((selectedProject.images && selectedProject.images.length > 0)
+                      ? selectedProject.images
+                      : [selectedProject.image]).slice(0, 6).map((src, idx) => (
+                      <button key={idx} onClick={() => setCurrentSlide(idx)} className={`h-16 w-24 rounded-md overflow-hidden border ${currentSlide === idx ? 'border-pink-400' : 'border-white/10'}`}>
+                        <img src={src} alt={`${selectedProject.title} thumb ${idx+1}`} className="h-full w-full object-cover" />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right: Info */}
+                <div>
+                  <h2 className="text-3xl md:text-4xl font-extrabold">{selectedProject.title}</h2>
+                  <p className="mt-3 text-gray-300">{selectedProject.description}</p>
+                  {/* Tech chips */}
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {(selectedProject.tech || [selectedProject.category]).filter(Boolean).map((t, i) => (
+                      <span key={i} className="px-3 py-1 rounded-full text-sm bg-white/10 border border-white/10">{t}</span>
+                    ))}
+                  </div>
+                  {/* Key features */}
+                  <div className="mt-6">
+                    <h3 className="text-xl font-bold">Key Features</h3>
+                    <ul className="mt-3 space-y-2 text-gray-200 list-disc list-inside">
+                      {(selectedProject.features || [
+                        'Responsive UI with smooth animations',
+                        'Clean component structure and reusable parts',
+                        'Deployed live with fast assets',
+                      ]).map((f, i) => (
+                        <li key={i}>{f}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  {/* CTA buttons */}
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    {selectedProject.liveLink && (
+                      <a href={selectedProject.liveLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white font-semibold">
+                        <span className="h-2.5 w-2.5 rounded-full bg-white"></span>
+                        Live Demo
+                      </a>
+                    )}
+                    {(selectedProject.githubFrontend || selectedProject.githubRepo) && (
+                      <a href={selectedProject.githubFrontend || selectedProject.githubRepo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-sky-600 hover:bg-sky-500 text-white font-semibold">
+                        <span className="h-2.5 w-2.5 rounded-full bg-white"></span>
+                        Client Code
+                      </a>
+                    )}
+                    {selectedProject.githubBackend && (
+                      <a href={selectedProject.githubBackend} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-violet-600 hover:bg-violet-500 text-white font-semibold">
+                        <span className="h-2.5 w-2.5 rounded-full bg-white"></span>
+                        Server Code
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         </Dialog>

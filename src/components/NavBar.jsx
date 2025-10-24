@@ -1,102 +1,110 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import Lottie from 'lottie-react';
-import { Typewriter } from 'react-simple-typewriter';
-import { Reveal } from 'react-awesome-reveal';
-import { Tooltip } from 'react-tooltip';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import 'animate.css';
-import animationData from "../assets/anim.json";
+import React, { useEffect, useState } from 'react';
 
 const Navbar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Initialize AOS for scroll animations
-  useEffect(() => {
-    AOS.init({ duration: 1200 });
-  }, []);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    setIsMobileMenuOpen(false); // Close the mobile menu after navigation
+    setIsMenuOpen(false);
   };
 
+  useEffect(() => {
+    const container = document.getElementById('sparkles');
+    if (!container) return;
+    container.innerHTML = '';
+    const colors = ['#edabd2', '#ffae57', '#fcf577', '#bae67e', '#5ccfe6', '#9cc6f4', '#aa72c5', '#ffffff'];
+    for (let i = 0; i < 100; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      const size = Math.random() * 3 + 1;
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      sparkle.style.width = `${size}px`;
+      sparkle.style.height = `${size}px`;
+      sparkle.style.backgroundColor = color;
+      sparkle.style.top = `${Math.random() * 100}vh`;
+      sparkle.style.left = `${Math.random() * 100}vw`;
+      sparkle.style.animationDelay = `${Math.random() * 3}s`;
+      sparkle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
+      container.appendChild(sparkle);
+    }
+    return () => { container.innerHTML = ''; };
+  }, []);
+
   return (
-    <header className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 dark:bg-gray-800 shadow-lg fixed top-0  z-50 w-full">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo with Animation */}
-          <div className="text-white font-bold text-xl flex items-center space-x-2">
-            <Lottie animationData={animationData} loop={true} className="h-8 w-8" />
-            <a href="#" className="hover:text-gray-300 transition duration-300 font-extrabold text-2xl">
-              <Typewriter words={['Abdulla Al Shakaet']} loop cursor />
-            </a>
-          </div>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item, index) => (
-              <Reveal effect="fadeIn" duration={1500} delay={index * 200} key={item}>
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  className="text-white text-3xl dark:text-gray-300 relative group  hover:font-bold font-bold "
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                >
-                  {item}
-                  <span className="absolute left-0 -bottom-3 w-0 h-1 bg-gray-300 dark:bg-white transition-all duration-300 group-hover:w-1/2 mx-auto"></span>
-                </a>
-              </Reveal>
-            ))}
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <div className="md:hidden">
+    <>
+      <div id="sparkles" className="sparkles"></div>
+      <button
+        aria-label="Open navigation menu"
+        className="md:hidden fixed top-4 right-4 z-50 w-12 h-12 rounded-full bg-black/40 backdrop-blur border border-white/10 text-white flex items-center justify-center"
+        onClick={() => setIsMenuOpen(true)}
+      >
+        <i className="fa-solid fa-bars text-2xl"></i>
+      </button>
+      <nav className="hidden md:flex fixed top-0 right-0 h-screen w-[144px] flex-col items-center bg-transparent z-50 p-8">
+        <div className="flex w-12 h-12 items-center justify-center mt-2 mb-2 cursor-pointer transition-transform duration-300 hover:scale-110">
+          <span className="text-4xl">✨</span>
+        </div>
+        <div className="w-px bg-[var(--dim-gray)] flex-1"></div>
+        <ul className="flex flex-col items-end gap-4 list-none pr-16">
+          <li>
+            <button onClick={() => scrollToSection('home')} className="font-extrabold tracking-wide text-[20px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-red-400 hover:from-yellow-300 hover:via-pink-400 hover:to-purple-400 transition-all">Home</button>
+          </li>
+          <li>
+            <button onClick={() => scrollToSection('about')} className="font-extrabold tracking-wide text-[20px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-red-400 hover:from-yellow-300 hover:via-pink-400 hover:to-purple-400 transition-all">About</button>
+          </li>
+          <li>
+            <button onClick={() => scrollToSection('skills')} className="font-extrabold tracking-wide text-[20px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-red-400 hover:from-yellow-300 hover:via-pink-400 hover:to-purple-400 transition-all">Skills</button>
+          </li>
+          <li>
+            <button onClick={() => scrollToSection('projects')} className="font-extrabold tracking-wide text-[20px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-red-400 hover:from-yellow-300 hover:via-pink-400 hover:to-purple-400 transition-all">Projects</button>
+          </li>
+          <li>
+            <button onClick={() => scrollToSection('contact')} className="font-extrabold tracking-wide text-[20px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-red-400 hover:from-yellow-300 hover:via-pink-400 hover:to-purple-400 transition-all">Contact</button>
+          </li>
+        </ul>
+        <div className="w-px bg-[var(--dim-gray)] flex-1"></div>
+        <ul className="flex flex-col items-end gap-5 list-none mb-1 mt-2 pr-0">
+          <li>
+            <a href="https://github.com/Shakaet" target="_blank" rel="noreferrer" className="text-[var(--dim-gray)] hover:text-[var(--pink-accent)] text-[18px]"><i className="fab fa-github"></i></a>
+          </li>
+          <li>
+            <a href="#" target="_blank" rel="noreferrer" className="text-[var(--dim-gray)] hover:text-[var(--pink-accent)] text-[18px]"><i className="fab fa-linkedin"></i></a>
+          </li>
+          <li>
+            <a href="#" target="_blank" rel="noreferrer" className="text-[var(--dim-gray)] hover:text-[var(--pink-accent)] text-[18px]"><i className="fab fa-twitter"></i></a>
+          </li>
+        </ul>
+        <div className="w-px bg-[var(--dim-gray)] min-h-8"></div>
+      </nav>
+      {/* Mobile full-screen overlay menu */}
+      <div className={`md:hidden fixed inset-0 ${isMenuOpen ? 'flex' : 'hidden'} z-50`}>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900 to-black opacity-95"></div>
+        <div className="relative z-10 w-full h-full flex flex-col items-center justify-center gap-8">
+          <button onClick={() => setIsMenuOpen(false)} aria-label="Close navigation menu" className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center">
+            <i className="fa-solid fa-xmark text-2xl"></i>
+          </button>
+          {[
+            { label: 'Home', id: 'home' },
+            { label: 'About', id: 'about' },
+            { label: 'Skills', id: 'skills' },
+            { label: 'Projects', id: 'projects' },
+            { label: 'Contact', id: 'contact' },
+          ].map((item) => (
             <button
-              onClick={toggleMobileMenu}
-              className="text-white"
-              data-tooltip-id="menu-tooltip"
-              data-tooltip-content="Open Menu"
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="text-4xl font-extrabold uppercase tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-red-400 hover:from-yellow-300 hover:via-pink-400 hover:to-purple-400 transition-all"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
+              {item.label}
             </button>
-            <Tooltip id="menu-tooltip" />
+          ))}
+          <div className="mt-8 flex gap-6">
+            <a href="https://github.com/Shakaet" target="_blank" rel="noreferrer" className="text-white text-2xl"><i className="fab fa-github"></i></a>
+            <a href="#" target="_blank" rel="noreferrer" className="text-white text-2xl"><i className="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank" rel="noreferrer" className="text-white text-2xl"><i className="fab fa-twitter"></i></a>
           </div>
         </div>
-
-        {/* Mobile Menu (Sliding Effect) */}
-        <motion.div
-          className={`md:hidden fixed top-0 left-0 w-full h-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 dark:bg-gray-800 z-50 ${
-            isMobileMenuOpen ? 'block' : 'hidden'
-          }`}
-          initial={{ x: '-100%' }}
-          animate={{ x: isMobileMenuOpen ? 0 : '-100%' }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="flex flex-col items-center justify-center space-y-6 mt-20">
-            {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
-              <a
-                key={item}
-                onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-white dark:text-gray-300 text-2xl transition duration-300  hover:font-bold group-hover:w-1/2 mx-auto"
-              >
-                {item}
-                <span className="absolute left-0 -bottom-3 w-0 h-1 bg-gray-300 dark:bg-white transition-all duration-300 group-hover:w-1/2 mx-auto"></span>
-              </a>
-            ))}
-            <button onClick={toggleMobileMenu} className="text-white text-xl mt-4 hover:text-gray-300 font-extrabold">
-              Close Menu
-            </button>
-          </div>
-        </motion.div>
-      </nav>
-    </header>
+      </div>
+    </>
   );
 };
 
