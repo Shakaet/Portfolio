@@ -55,6 +55,9 @@ const Navbar = () => {
             <button onClick={() => scrollToSection('skills')} className="font-extrabold tracking-wide text-[20px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-red-400 hover:from-yellow-300 hover:via-pink-400 hover:to-purple-400 transition-all">Skills</button>
           </li>
           <li>
+            <button onClick={() => scrollToSection('experience')} className="font-extrabold tracking-wide text-[20px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-red-400 hover:from-yellow-300 hover:via-pink-400 hover:to-purple-400 transition-all">Experience</button>
+          </li>
+          <li>
             <button onClick={() => scrollToSection('projects')} className="font-extrabold tracking-wide text-[20px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-red-400 hover:from-yellow-300 hover:via-pink-400 hover:to-purple-400 transition-all">Projects</button>
           </li>
           <li>
@@ -86,6 +89,7 @@ const Navbar = () => {
             { label: 'Home', id: 'home' },
             { label: 'About', id: 'about' },
             { label: 'Skills', id: 'skills' },
+            { label: 'Experience', id: 'experience' },
             { label: 'Projects', id: 'projects' },
             { label: 'Contact', id: 'contact' },
           ].map((item) => (

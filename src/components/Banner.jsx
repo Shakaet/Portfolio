@@ -1,15 +1,15 @@
 import React from 'react';
-import Lottie from 'lottie-react';
+// import Lottie from 'lottie-react';
 import { Typewriter } from 'react-simple-typewriter';
 import { Reveal } from 'react-awesome-reveal';
 import { keyframes } from '@emotion/react';
 import { motion } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import profileImage from '../assets/p4_1.png';
+import profileImage from '../assets/me.jpeg';
 import resume from "/FinalResumeup.pdf"
 import 'animate.css';
-import animationData from "../assets/banner.json"; // Replace with your Lottie animation file path
+// import animationData from "../assets/banner.json"; // Replace with your Lottie animation file path
 
 const fadeInUp = keyframes`
   from {
@@ -47,10 +47,10 @@ const Banner = () => {
                   <motion.img
                     src={profileImage}
                     alt="Profile"
-                    className="w-60 h-60 rounded-full border-4 border-pink-500 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110"
+                    className="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-pink-500 shadow-[0_0_40px_rgba(236,72,153,0.5)] hover:shadow-[0_0_60px_rgba(236,72,153,0.8)] transition-all duration-300 hover:scale-110"
                     whileHover={{ scale: 1.1 }}
                   />
-                 
+
                 </div>
         <Reveal keyframes={fadeInUp} delay={300}>
           <h1 className="text-4xl md:text-6xl font-bold animate__animated animate__fadeInDown">

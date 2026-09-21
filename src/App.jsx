@@ -1,6 +1,7 @@
 import AboutMe from "./components/AboutMe"
 import Banner from "./components/Banner"
 import Contact from "./components/Contact"
+import Experience from "./components/Experience"
 import Footer from "./components/Footer"
 import NavBar from "./components/NavBar"
 import Projects from "./components/Projects"
@@ -13,11 +14,12 @@ function App() {
 
   return (
     <div className="nunito-font overflow-x-hidden">
-   
+
       <NavBar></NavBar>
       <Banner></Banner>
       <AboutMe></AboutMe>
       <Skill></Skill>
+      <Experience></Experience>
       <Projects></Projects>
       <Contact></Contact>
       <Footer></Footer>
