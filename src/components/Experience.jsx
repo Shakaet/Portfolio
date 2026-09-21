@@ -5,23 +5,31 @@ const experiences = [
   {
     role: 'Full Stack Developer',
     company: 'Classic IT & Sky Mart Ltd',
+    link: 'https://classicit.com.bd/',
     duration: 'Nov 2025 – Present',
+    mode: 'Onsite',
     current: true,
   },
   {
     role: 'Full Stack Developer',
     company: 'World Wise Scholars',
+    link: 'https://www.facebook.com/worldwisesocial',
     duration: 'Sep 2025 – Mar 2026',
+    mode: 'Remote',
   },
   {
     role: 'Full Stack Developer',
     company: 'Infinoid Technologies',
+    link: 'https://www.infinoid.com/',
     duration: 'Mar 2025 – Jun 2025',
+    mode: 'Remote',
   },
   {
     role: 'Intern Developer',
     company: 'Stamasoft Technologies',
+    link: 'https://stamasoft.com/',
     duration: '2024 – 2025',
+    mode: 'Onsite',
   },
 ];
 
@@ -76,13 +84,33 @@ const Experience = () => {
                           </span>
                           <h3 className="text-lg font-bold">{exp.role}</h3>
                         </div>
-                        <p className="text-gray-200 font-medium">{exp.company}</p>
+                        <a
+                          href={exp.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-gray-200 font-medium hover:text-pink-400 transition-colors inline-flex items-center gap-1"
+                        >
+                          {exp.company}
+                          <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
                         <p className="text-sm text-gray-400 italic mt-1">{exp.duration}</p>
-                        {exp.current && (
-                          <span className="inline-block mt-3 text-xs font-semibold px-3 py-1 rounded-full bg-yellow-300/10 text-yellow-300 border border-yellow-300/30">
-                            Currently Working
+                        <div className="flex flex-wrap gap-2 mt-3">
+                          <span
+                            className={`inline-flex items-center gap-1 text-xs font-semibold px-3 py-1 rounded-full border ${
+                              exp.mode === 'Onsite'
+                                ? 'bg-sky-400/10 text-sky-300 border-sky-400/30'
+                                : 'bg-emerald-400/10 text-emerald-300 border-emerald-400/30'
+                            }`}
+                          >
+                            <i className={`fa-solid ${exp.mode === 'Onsite' ? 'fa-building' : 'fa-house-laptop'} text-[10px]`}></i>
+                            {exp.mode}
                           </span>
-                        )}
+                          {exp.current && (
+                            <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-yellow-300/10 text-yellow-300 border border-yellow-300/30">
+                              Currently Working
+                            </span>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
